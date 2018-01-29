@@ -11,6 +11,7 @@ public class CtBestClienService extends BaseService {
 	private static final String HOST = "https://www.clien.net";
 	private static final String URL = "https://www.clien.net/service/group/clien_all?&od=T33";
 	
+	private static final String ENCORDING = null;
 	private static final String CATEGORY = "best";
 	
 	private static final String FILTER_FIND = "이용규칙";
@@ -25,14 +26,12 @@ public class CtBestClienService extends BaseService {
 		String link = null;
 		
 		try {
-			System.out.println(getContents());
-			Document doc = Jsoup.parse(getContents());
-			Elements es = doc.getElementsByAttributeValue("class", "list-subject");
+			Document doc = Jsoup.parse(getContents(ENCORDING));
+			Elements es = doc.getElementsByAttributeValue("class", "list_item symph_row");
 			
 			for(Element el:es) {
-				title = el.text();
-				
-				link = el.getElementsByTag("a").attr("href");
+				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();
+				link = el.getElementsByAttributeValue("class", "list_subject").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
 					if(title.contains(FILTER_FIND)) {

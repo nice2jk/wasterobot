@@ -27,11 +27,11 @@ public class CtNewsClienService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list-subject");
+			Elements es = doc.getElementsByAttributeValue("class", "list_item symph_row");
 			
 			for(Element el:es) {
-				title = el.text();
-				link = el.getElementsByTag("a").attr("href");
+				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();
+				link = el.getElementsByAttributeValue("class", "list_subject").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
 					if(title.contains(FILTER_FIND)) {

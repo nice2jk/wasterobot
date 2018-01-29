@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 public class CtBestDdanziService extends BaseService {
 
 	private static final String NAME = "The ddanzi";
-	private static final String URL = "http://www.ddanzi.com/free";
+	private static final String URL = "http://www.ddanzi.com/hot_all?sub=free";
 	
 	private static final String ENCORDING = null;
 	
@@ -25,7 +25,7 @@ public class CtBestDdanziService extends BaseService {
 		
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "n_contentWrap");
+			Elements es = doc.getElementsByAttributeValue("class", "title");
 			
 			for(Element el:es) {
 				title = el.getElementsByTag("a").text();

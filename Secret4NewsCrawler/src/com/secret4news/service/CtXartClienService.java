@@ -24,10 +24,10 @@ public class CtXartClienService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list-subject");
+			Elements es = doc.getElementsByAttributeValue("class", "list_item");
 			
 			for(Element el:es) {
-				title = el.text();
+				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
