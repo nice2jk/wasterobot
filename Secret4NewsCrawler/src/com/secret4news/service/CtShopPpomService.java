@@ -33,6 +33,8 @@ public class CtShopPpomService extends BaseService {
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {					
+					link = HOST + link;
+					
 					addContent(title, link);					
 				}
 			}
