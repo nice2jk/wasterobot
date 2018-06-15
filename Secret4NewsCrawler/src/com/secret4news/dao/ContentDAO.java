@@ -75,6 +75,10 @@ public class ContentDAO {
 		
 		String str = "SELECT cid, link FROM content WHERE cid = \'" + contentVO.getCid() + "\'";
 		
+		if(contentVO.getCategory().equals("best")) {
+			str = "SELECT cid, link FROM content_best WHERE cid = \'" + contentVO.getCid() + "\'";
+		}
+		
 		try {
 			conn = getDBConnection();
 			statement = conn.createStatement();
@@ -126,6 +130,10 @@ public class ContentDAO {
 		
 		String sqlStr = "INSERT INTO content (cid, cpname, title, link, category, grade, ctime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
+		if(contentVO.getCategory().equals("best")) {
+			sqlStr = "INSERT INTO content_best (cid, cpname, title, link, category, grade, ctime) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		}
+		
 		try {
 			conn = getDBConnection();
 			
@@ -167,6 +175,10 @@ public class ContentDAO {
 		String sqlStr = "UPDATE content SET link = \'"
 				+ contentVO.getLink() + "\' WHERE cid = \'" + contentVO.getCid()
 				+ "\'";
+		
+		if(contentVO.getCategory().equals("best")) {
+			sqlStr = "UPDATE content_best SET link = \'"	+ contentVO.getLink() + "\' WHERE cid = \'" + contentVO.getCid() + "\'";
+		}
 
 		try {
 			conn = getDBConnection();
