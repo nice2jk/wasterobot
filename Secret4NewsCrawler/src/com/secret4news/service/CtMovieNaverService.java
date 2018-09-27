@@ -7,9 +7,9 @@ import org.jsoup.select.Elements;
 
 public class CtMovieNaverService extends BaseService {
 
-	private static final String NAME = "Naver Magazine";
-	private static final String HOST = "http://m.movie.naver.com";	
-	private static final String URL = "http://m.movie.naver.com/m/magazine/list.nhn?menu=SPECIAL_REPORT";
+	private static final String NAME = "Daum Movie Magazine";
+	/*private static final String HOST = "http://m.movie.naver.com";*/
+	private static final String URL = "https://movie.daum.net/magazine/new";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "movi";
@@ -25,16 +25,13 @@ public class CtMovieNaverService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValueContaining("href", "detail.nhn");
-			
+			Elements es = doc.getElementsByAttributeValue("class", "desc_box");			
 			
 			for(Element el:es) {				
-				title = el.getElementsByAttributeValue("class", "sprt_hlt").text();
+				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
-					link = HOST + link;
-					
 					addContent(title, link);
 				}
 			}

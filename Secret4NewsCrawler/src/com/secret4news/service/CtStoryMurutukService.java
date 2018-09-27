@@ -7,11 +7,12 @@ import org.jsoup.select.Elements;
 
 public class CtStoryMurutukService extends BaseService {
 
-	private static final String NAME = "물뚝심송";
-	private static final String URL = "http://murutukus.kr";
+	private static final String NAME = "dcnewsJ";
+	private static final String HOST = "https://dcnewsj.joins.com";	
+	private static final String URL = "https://dcnewsj.joins.com/all?cloc=dcnewsj|home|navi";
 	
 	private static final String ENCORDING = null;
-	private static final String CATEGORY = "NEWS";
+	private static final String CATEGORY = "news";
 	
 	public CtStoryMurutukService(int intervalTime) {
 		super(NAME, URL, CATEGORY, intervalTime);
@@ -24,17 +25,16 @@ public class CtStoryMurutukService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "entry-header");
+			Elements es = doc.getElementsByAttributeValue("class", "mg text_wrap");
 			
 			for(Element el:es) {
 				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
-										
-					if(title.length() > 0 && link.length() > 0) {
-						addContent(title, link);	
-					}
+					link = HOST + link; 
+					
+					addContent(title, link);
 				}
 			}
 		} catch (Exception e) {

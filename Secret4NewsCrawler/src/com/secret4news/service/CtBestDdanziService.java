@@ -10,8 +10,7 @@ public class CtBestDdanziService extends BaseService {
 	private static final String NAME = "The ddanzi";
 	private static final String URL = "http://www.ddanzi.com/index.php?mid=free&statusList=HOT%2CHOTBEST";
 	
-	private static final String ENCORDING = null;
-	
+	private static final String ENCORDING = null;	
 	private static final String CATEGORY = "best";
 		
 	public CtBestDdanziService(int intervalTime) {

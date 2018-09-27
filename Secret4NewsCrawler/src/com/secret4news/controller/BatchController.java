@@ -45,7 +45,7 @@ public class BatchController {
 		serviceMap = new HashMap<String, BaseService>();
 		
 		// Best 4
-		serviceMap.put("bestbb", new CtBestBobaeService(Constants.FETCH_INTERVAL[3]));
+		serviceMap.put("bestbb", new CtBestBobaeService(Constants.FETCH_INTERVAL[2]));
 		serviceMap.put("bestdd", new CtBestDdanziService(Constants.FETCH_INTERVAL[1]));
 		serviceMap.put("bestcl", new CtBestClienService(Constants.FETCH_INTERVAL[2]));
 		serviceMap.put("besttb", new CtBestTodayService(Constants.FETCH_INTERVAL[1]));
@@ -62,7 +62,7 @@ public class BatchController {
 		serviceMap.put("itctpp", new CtNewsPpomService(Constants.FETCH_INTERVAL[3]));
 		
 		// story 4
-		serviceMap.put("newsmu", new CtStoryMurutukService(Constants.FETCH_INTERVAL[10]));
+		serviceMap.put("newsdc", new CtStoryMurutukService(Constants.FETCH_INTERVAL[10]));
 		serviceMap.put("newssl", new CtStorySlowNewsService(Constants.FETCH_INTERVAL[6]));
 		serviceMap.put("newspp", new CtStoryPPSSService(Constants.FETCH_INTERVAL[5]));
 				
@@ -76,8 +76,8 @@ public class BatchController {
 		
 		// movie 3
 		serviceMap.put("movi21", new CtMovieCine21Service(Constants.FETCH_INTERVAL[3]));
-		serviceMap.put("moviex", new CtMovieExtremeService(Constants.FETCH_INTERVAL[4]));
-		serviceMap.put("movinv", new CtMovieNaverService(Constants.FETCH_INTERVAL[6]));
+		serviceMap.put("moviex", new CtMovieExtremeService(Constants.FETCH_INTERVAL[2]));
+		serviceMap.put("movinv", new CtMovieNaverService(Constants.FETCH_INTERVAL[4]));
 		
 		// girl 3
 		serviceMap.put("girl82", new CtGirl82cookService(Constants.FETCH_INTERVAL[2]));

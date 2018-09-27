@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 public class CtStoryPPSSService extends BaseService {
 
 	private static final String NAME = "PPSS";
-	private static final String URL = "http://ppss.kr/";
+	private static final String URL = "https://ppss.kr/archives";
 	
 	private static final String ENCORDING = null;
 	
@@ -25,10 +25,10 @@ public class CtStoryPPSSService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "entry-header");
+			Elements es = doc.getElementsByAttributeValue("class", "entry-title-link");
 			
 			for(Element el:es) {
-				title = el.getElementsByTag("a").get(0).text();
+				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
