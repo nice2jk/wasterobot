@@ -9,7 +9,7 @@ public class CtSoccerGoalService extends BaseService {
 
 	private static final String NAME = "Goal.com";
 	private static final String HOST = "http://www.goal.com";
-	private static final String URL = "http://m.goal.com/s/kr/archive";
+	private static final String URL = "https://www.goal.com/kr";
 	
 	private static final String ENCORDING = null;
 	
@@ -23,7 +23,7 @@ public class CtSoccerGoalService extends BaseService {
 	void process() {
 		String title = null;		
 		String link = null;
-				
+
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
 			Elements es = doc.getElementsByAttributeValue("data-side", "back");
