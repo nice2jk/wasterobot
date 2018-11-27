@@ -14,7 +14,7 @@ public class CtShopClienService extends BaseService {
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "shop";
 	
-	private static final String FILTER_FIND = "이용규칙";
+	private static final String FILTER_FIND = "규칙";
 		
 	public CtShopClienService(int intervalTime) {
 		super(NAME, URL, CATEGORY, intervalTime);
@@ -27,11 +27,11 @@ public class CtShopClienService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list_item symph_row");
+			Elements es = doc.getElementsByAttributeValue("data-role", "list-title-text");
 			
 			for(Element el:es) {
-				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();
-				link = el.getElementsByAttributeValue("class", "list_subject").attr("href");
+				title = el.getElementsByTag("a").text();
+				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
 					if(title.contains(FILTER_FIND)) {

@@ -14,7 +14,7 @@ public class CtBestClienService extends BaseService {
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "best";
 	
-	private static final String FILTER_FIND = "이용규칙";
+	private static final String FILTER_FIND = "규칙";
 		
 	public CtBestClienService(int intervalTime) {
 		super(NAME, URL, CATEGORY, intervalTime);
@@ -27,7 +27,7 @@ public class CtBestClienService extends BaseService {
 		
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list_item symph_row");
+			Elements es = doc.getElementsByAttributeValue("class", "list_title");
 			
 			for(Element el:es) {
 				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();

@@ -27,7 +27,7 @@ public class CtNewsClienService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list_item symph_row");
+			Elements es = doc.getElementsByAttributeValue("class", "list_title");
 			
 			for(Element el:es) {
 				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();
