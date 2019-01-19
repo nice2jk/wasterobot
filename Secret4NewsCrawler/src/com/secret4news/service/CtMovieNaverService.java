@@ -25,7 +25,7 @@ public class CtMovieNaverService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "desc_box");			
+			Elements es = doc.getElementsByAttributeValue("class", "tit_line");			
 			
 			for(Element el:es) {				
 				title = el.getElementsByTag("a").text();

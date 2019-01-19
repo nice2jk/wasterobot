@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="libs/mysql-connector-java-5.1.5-bin.jar"/>
-	<classpathentry kind="lib" path="D:/Dev/git/wasterobot/Secret4NewsCrawler/libs/jsoup-1.7.3.jar"/>
+	<classpathentry kind="lib" path="C:/apps/git/wasterobot/Secret4NewsCrawler/libs/jsoup-1.11.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

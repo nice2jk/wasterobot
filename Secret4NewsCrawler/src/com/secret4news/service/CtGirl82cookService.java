@@ -8,8 +8,8 @@ import org.jsoup.select.Elements;
 public class CtGirl82cookService extends BaseService {
 
 	private static final String NAME = "82Cook";
-	private static final String HOST = "http://www.82cook.com/entiz/";
-	private static final String URL = "http://www.82cook.com/entiz/enti.php?bn=15";
+	private static final String HOST = "http://www.82cook.com";
+	private static final String URL = "https://www.82cook.com/entiz/enti.php?bn=15";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "girl";
@@ -22,25 +22,18 @@ public class CtGirl82cookService extends BaseService {
 	void process() {
 		String title = null;
 		String link = null;
-		String reply = null;
 		
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByTag("tr");
+			Elements es = doc.getElementsByAttributeValueStarting("href", "/entiz/read.");
 			
 			for(Element el:es) {
-				title = el.getElementsByAttributeValue("class", "title").text();
-				reply = el.getElementsByTag("em").text();
-				title = title.replace(reply, "");
+				title = el.attr("title");
+				link = el.attr("href");
 				
-				link = el.getElementsByTag("a").attr("href");
-				
-				if(title.length() > 0 && link.length() > 0 && link.contains("&")) {
-					link = HOST + link.substring(0, link.lastIndexOf("&"));
-					
-					if(!reply.equals("") && Integer.valueOf(reply) > 5) {
-						addContent(title, link);	
-					}
+				if(title.length() > 0 && link.length() > 0) {
+					link = HOST + link;
+					addContent(title, link);
 				}
 			}
 		} catch (Exception e) {

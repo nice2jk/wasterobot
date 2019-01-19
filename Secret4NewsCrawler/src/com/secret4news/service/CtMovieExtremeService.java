@@ -9,6 +9,7 @@ public class CtMovieExtremeService extends BaseService {
 
 	private static final String NAME = "Ext Movie";
 	private static final String URL = "http://extmovie.maxmovie.com/xe/movietalk";
+	private static final String HOST = "http://extmovie.maxmovie.com";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "movi";
@@ -31,6 +32,8 @@ public class CtMovieExtremeService extends BaseService {
 				link = el.getElementsByTag("a").first().attr("href");
 					
 				if(title.length() > 0 && link.length() > 0) {
+					link = HOST + link;
+					
 					addContent(title, link);					
 				}
 			}
