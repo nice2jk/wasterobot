@@ -90,12 +90,12 @@ public class BatchController {
 		
 		// stock 3
 		serviceMap.put("stocda", new CtStockDaumService(Constants.FETCH_INTERVAL[3]));
-		serviceMap.put("stocec", new CtStockEconomicService(Constants.FETCH_INTERVAL[6]));
-		serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));
+		/*serviceMap.put("stocec", new CtStockEconomicService(Constants.FETCH_INTERVAL[6]));*/
+		/*serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));*/
 		
-		// dev 1
+		// dev 2
 		serviceMap.put("devpia", new CtDevPiaService(Constants.FETCH_INTERVAL[6]));
-		/*serviceMap.put("devpok", new CtDevpThinkService(Constants.FETCH_INTERVAL[3]));*/
+		serviceMap.put("devpok", new CtDevpThinkService(Constants.FETCH_INTERVAL[3]));
 	}
 	
 	public void run(String param) {

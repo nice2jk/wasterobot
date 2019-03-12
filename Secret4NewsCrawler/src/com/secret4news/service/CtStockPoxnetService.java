@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 public class CtStockPoxnetService extends BaseService {
 
 	private static final String NAME = "PoxNet";
-	private static final String URL = "http://bbs.moneta.co.kr/nbbs/bbs.mpax.lst.screen?p_bbs_id=N10584";
+	private static final String URL = "http://www.paxnet.co.kr/tbbs/list?tbbsType=L&id=N10841";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "stoc";
@@ -23,15 +23,17 @@ public class CtStockPoxnetService extends BaseService {
 		String link = null;
 				
 		try {
+			System.out.println(getContents(ENCORDING));
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValueContaining("onclick", "message_view");
+			Elements es = doc.getElementsByAttributeValue("class", "best-title");
 			
 			for(Element el:es) {
-				title = el.getElementsByTag("dt").text();
-				link = el.getElementsByTag("dl").attr("onclick");
-				
+				title = el.getElementsByTag("a").text();
+				System.out.println(title);
+				link = el.getElementsByTag("a").attr("href");
+				System.out.println(link);
 				if(title.length() > 0 && link.length() > 0) {
-					link = (URL.replace("lst", "qry")).replace("?", "?p_message_id=" + link.substring(link.indexOf('\'') + 1, link.indexOf(',') - 1) + "&");
+					
 					
 					addContent(title, link);
 				}

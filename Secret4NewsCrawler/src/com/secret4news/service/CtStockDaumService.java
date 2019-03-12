@@ -7,10 +7,11 @@ import org.jsoup.select.Elements;
 
 public class CtStockDaumService extends BaseService {
 
-	private static final String NAME = "Daum Stock";	
-	private static final String URL = "http://m.finance.daum.net/m/community/index.daum";
+	private static final String NAME = "Naver Stock";
+	private static final String HOST = "https://finance.naver.com";
+	private static final String URL = "https://finance.naver.com/research/column_main.nhn";
 	
-	private static final String ENCORDING = null;
+	private static final String ENCORDING = "EUC-KR";
 	
 	private static final String CATEGORY = "stoc";
 	
@@ -25,13 +26,15 @@ public class CtStockDaumService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "link_debate");
+			Elements es = doc.getElementsByAttributeValue("class", "news_tit");
 			
 			for(Element el:es) {
-				title = el.getElementsByAttributeValue("class", "tit_subject").text();
+				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {					
+					link = HOST + link;
+					
 					addContent(title, link);
 				}
 			}

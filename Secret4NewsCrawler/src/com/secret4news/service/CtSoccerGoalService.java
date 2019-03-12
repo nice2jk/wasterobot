@@ -7,9 +7,9 @@ import org.jsoup.select.Elements;
 
 public class CtSoccerGoalService extends BaseService {
 
-	private static final String NAME = "Goal.com";
-	private static final String HOST = "http://www.goal.com";
-	private static final String URL = "https://www.goal.com/kr";
+	private static final String NAME = "FM Korea";
+	private static final String HOST = "https://www.fmkorea.com";
+	private static final String URL = "https://www.fmkorea.com/index.php?mid=football_news&sort_index=pop&order_type=desc";
 	
 	private static final String ENCORDING = null;
 	
@@ -26,13 +26,14 @@ public class CtSoccerGoalService extends BaseService {
 
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("data-side", "back");
+			Elements es = doc.getElementsByAttributeValueContaining("class", "hotdeal_var8");
 			
 			for(Element el:es) {
-				title = el.getElementsByTag("h3").text();
+				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
-								
+				
 				if(title.length() > 0 && link.length() > 0) {
+					title = title.substring(0, title.lastIndexOf("["));
 					link = HOST + link;
 					
 					addContent(title, link);
