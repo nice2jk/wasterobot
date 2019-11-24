@@ -7,9 +7,10 @@ import org.jsoup.select.Elements;
 
 public class CtDevpThinkService extends BaseService {
 
-	private static final String NAME = "Byline";
-	private static final String URL = "https://byline.network/amp/";
-		
+	private static final String NAME = "OKKY";
+	private static final String URL = "https://okky.kr/articles/community";
+	private static final String HOST = "https://okky.kr";
+	
 	private static final String ENCORDING = null;
 	
 	private static final String CATEGORY = "devp";
@@ -23,16 +24,16 @@ public class CtDevpThinkService extends BaseService {
 		String title = null;		
 		String link = null;
 				
-		try {
-			
+		try {			
 			Document doc = Jsoup.parse(getContents(ENCORDING));			
-			Elements es = doc.getElementsByTag("h2");
+			Elements es = doc.getElementsByAttributeValueContaining("class", "list-group-item-heading");
 
 			for(Element el:es) {
 				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
+					link = HOST + link; 
 					addContent(title, link);
 				}
 			}

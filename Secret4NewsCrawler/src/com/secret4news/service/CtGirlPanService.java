@@ -8,11 +8,7 @@ import org.jsoup.select.Elements;
 public class CtGirlPanService extends BaseService {
 
 	private static final String NAME = "PAN";
-<<<<<<< HEAD
 	private static final String HOST = "https://m.pann.nate.com/";
-=======
-	private static final String HOST = "https://m.pann.nate.com";
->>>>>>> refs/remotes/origin/master
 	private static final String URL = "https://m.pann.nate.com/talk/c20025";
 	
 	private static final String ENCORDING = null;

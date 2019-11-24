@@ -8,8 +8,8 @@ import org.jsoup.select.Elements;
 public class CtXartBBGirlService extends BaseService {
 
 	private static final String NAME = "Bobae Dream";
-	private static final String HOST = "http://m.bobaedream.co.kr";
-	private static final String URL = "http://m.bobaedream.co.kr/board/new_writing/girl";
+	private static final String HOST = "https://m.bobaedream.co.kr";
+	private static final String URL = "https://m.bobaedream.co.kr/board/new_writing/girl";
 		
 	private static final String ENCORDING = null;
 	

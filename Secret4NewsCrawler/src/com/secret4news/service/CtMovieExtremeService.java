@@ -8,13 +8,8 @@ import org.jsoup.select.Elements;
 public class CtMovieExtremeService extends BaseService {
 
 	private static final String NAME = "Ext Movie";
-<<<<<<< HEAD
 	private static final String HOST = "http://extmovie.maxmovie.com";
 	private static final String URL = "https://extmovie.com/bestboard";
-=======
-	private static final String URL = "http://extmovie.maxmovie.com/xe/movietalk";
-	private static final String HOST = "http://extmovie.maxmovie.com";
->>>>>>> refs/remotes/origin/master
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "movi";
@@ -39,11 +34,7 @@ public class CtMovieExtremeService extends BaseService {
 				if(title.length() > 0 && link.length() > 0) {
 					link = HOST + link;
 					
-<<<<<<< HEAD
 					addContent(title, link);
-=======
-					addContent(title, link);					
->>>>>>> refs/remotes/origin/master
 				}
 			}
 		} catch (Exception e) {

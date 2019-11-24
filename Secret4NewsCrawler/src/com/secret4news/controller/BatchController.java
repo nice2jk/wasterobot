@@ -81,7 +81,7 @@ public class BatchController {
 		
 		// girl 3
 		serviceMap.put("girl82", new CtGirl82cookService(Constants.FETCH_INTERVAL[2]));
-		serviceMap.put("girlmz", new CtGirlMizService(Constants.FETCH_INTERVAL[4]));
+		/*serviceMap.put("girlmz", new CtGirlMizService(Constants.FETCH_INTERVAL[4]));*/
 		serviceMap.put("girlpn", new CtGirlPanService(Constants.FETCH_INTERVAL[4]));
 		
 		// shop 2
@@ -91,7 +91,7 @@ public class BatchController {
 		// stock 3
 		serviceMap.put("stocda", new CtStockDaumService(Constants.FETCH_INTERVAL[3]));
 		/*serviceMap.put("stocec", new CtStockEconomicService(Constants.FETCH_INTERVAL[6]));*/
-		/*serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));*/
+		serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));
 		
 		// dev 2
 		serviceMap.put("devpia", new CtDevPiaService(Constants.FETCH_INTERVAL[6]));

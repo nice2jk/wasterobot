@@ -7,8 +7,8 @@ import org.jsoup.select.Elements;
 
 public class CtNewsItcleService extends BaseService {
 
-	private static final String NAME = "techneedle";
-	private static final String URL = "http://techneedle.com";
+	private static final String NAME = "ByLine";
+	private static final String URL = "https://byline.network/amp/";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "itct";
@@ -24,10 +24,10 @@ public class CtNewsItcleService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "entry-header");
+			Elements es = doc.getElementsByAttributeValue("class", "fsp-img");
 			
 			for(Element el:es) {
-				title = el.getElementsByTag("h1").text();
+				title = el.getElementsByTag("a").attr("title");
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {

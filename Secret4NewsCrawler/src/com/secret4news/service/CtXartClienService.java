@@ -9,6 +9,7 @@ public class CtXartClienService extends BaseService {
 
 	private static final String NAME = "Clien XART";
 	private static final String URL = "https://www.clien.net/service/search?q=%ED%9B%84%EB%B0%A9";
+	private static final String HOST = "https://www.clien.net";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "xart";
@@ -24,14 +25,15 @@ public class CtXartClienService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list_item");
+			Elements es = doc.getElementsByAttributeValue("class", "list_subject");
 			
 			for(Element el:es) {
 				title = el.getElementsByTag("a").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
-					addContent(title, link);					
+					link = HOST + link;
+					addContent(title, link);
 				}
 			}
 		} catch (Exception e) {
