@@ -8,7 +8,11 @@ import org.jsoup.select.Elements;
 public class CtGirlPanService extends BaseService {
 
 	private static final String NAME = "PAN";
+<<<<<<< HEAD
 	private static final String HOST = "https://m.pann.nate.com/";
+=======
+	private static final String HOST = "https://m.pann.nate.com";
+>>>>>>> refs/remotes/origin/master
 	private static final String URL = "https://m.pann.nate.com/talk/c20025";
 	
 	private static final String ENCORDING = null;
@@ -22,20 +26,22 @@ public class CtGirlPanService extends BaseService {
 	void process() {
 		String title = null;		
 		String link = null;
-		String erase = null;
+		String titleSub = null;
 		
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByTag("li");
+			Elements es = doc.getElementsByAttributeValue("class", "nothumb");
 			
 			for(Element el:es) {
 				title = el.getElementsByAttributeValue("class", "tit").text();
-				erase = el.getElementsByAttributeValue("class", "count").text();
-				title = title.substring(0, title.indexOf(erase));
+				titleSub = el.getElementsByAttributeValue("class", "count").text();
 				link = el.getElementsByTag("a").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
-					link = HOST + link.substring(link.indexOf("talk"), link.indexOf("?"));
+					title = title.substring(0, title.indexOf(titleSub));
+					if(!link.contains("http")) {
+						link = HOST + link;
+					}
 					
 					addContent(title, link);	
 				}
