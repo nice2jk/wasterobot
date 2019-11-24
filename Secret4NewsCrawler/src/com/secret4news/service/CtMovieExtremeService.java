@@ -9,7 +9,7 @@ public class CtMovieExtremeService extends BaseService {
 
 	private static final String NAME = "Ext Movie";
 	private static final String HOST = "http://extmovie.maxmovie.com";
-	private static final String URL = "http://extmovie.maxmovie.com/xe/movietalk";
+	private static final String URL = "https://extmovie.com/bestboard";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "movi";
@@ -25,7 +25,7 @@ public class CtMovieExtremeService extends BaseService {
 				
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "notice");
+			Elements es = doc.getElementsByAttributeValue("class", "title_area");
 						
 			for(Element el:es) {
 				title = el.getElementsByTag("a").first().text();
