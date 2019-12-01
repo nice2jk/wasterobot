@@ -2,7 +2,7 @@ package com.secret4news.common;
 
 public class Constants {
 
-	public static final boolean isServer = false;
+	public static final boolean isServer = true;
 	
 	public static final String[] CATEGORY = {
 		"best", "xart", "news", "itct", "base", "socc", "movi", "miss", "shop", "stoc", "devp"	
