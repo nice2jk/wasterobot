@@ -27,10 +27,10 @@ public class CtBestClienService extends BaseService {
 		
 		try {
 			Document doc = Jsoup.parse(getContents(ENCORDING));
-			Elements es = doc.getElementsByAttributeValue("class", "list_title");
+			Elements es = doc.getElementsByAttributeValue("data-role", "list-title");
 			
 			for(Element el:es) {
-				title = el.getElementsByAttributeValue("data-role", "list-title-text").text();
+				title = el.getElementsByAttributeValue("class", "subject_fixed").text();
 				link = el.getElementsByAttributeValue("class", "list_subject").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {
