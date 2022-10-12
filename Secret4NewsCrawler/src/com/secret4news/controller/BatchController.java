@@ -54,30 +54,30 @@ public class BatchController {
 		serviceMap.put("xartcl", new CtXartClienService(Constants.FETCH_INTERVAL[2]));
 		serviceMap.put("xartbb", new CtXartBBGirlService(Constants.FETCH_INTERVAL[2]));
 		serviceMap.put("xartml", new CtXartMlbLikeService(Constants.FETCH_INTERVAL[1]));
-		serviceMap.put("xartmp", new CtXartMlbParkService(Constants.FETCH_INTERVAL[1]));
+		// serviceMap.put("xartmp", new CtXartMlbParkService(Constants.FETCH_INTERVAL[1]));
 		
 		// news 3
 		serviceMap.put("itctcl", new CtNewsClienService(Constants.FETCH_INTERVAL[2]));
 		serviceMap.put("itctit", new CtNewsItcleService(Constants.FETCH_INTERVAL[3]));
-		serviceMap.put("itctpp", new CtNewsPpomService(Constants.FETCH_INTERVAL[3]));
+		//serviceMap.put("itctpp", new CtNewsPpomService(Constants.FETCH_INTERVAL[3]));
 		
 		// story 4
 		serviceMap.put("newsdc", new CtStoryMurutukService(Constants.FETCH_INTERVAL[10]));
 		serviceMap.put("newssl", new CtStorySlowNewsService(Constants.FETCH_INTERVAL[6]));
-		serviceMap.put("newspp", new CtStoryPPSSService(Constants.FETCH_INTERVAL[5]));
+		// serviceMap.put("newspp", new CtStoryPPSSService(Constants.FETCH_INTERVAL[5]));
 				
 		// base 2
-		serviceMap.put("baseml", new CtBaseMlbparkService(Constants.FETCH_INTERVAL[3]));
-		serviceMap.put("basepp", new CtBasePpomService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("baseml", new CtBaseMlbparkService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("basepp", new CtBasePpomService(Constants.FETCH_INTERVAL[3]));
 		
 		// soccer 2
 		serviceMap.put("soccgl", new CtSoccerGoalService(Constants.FETCH_INTERVAL[3]));
-		serviceMap.put("soccpp", new CtSoccerPpomService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("soccpp", new CtSoccerPpomService(Constants.FETCH_INTERVAL[3]));
 		
 		// movie 3
-		serviceMap.put("movi21", new CtMovieCine21Service(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("movi21", new CtMovieCine21Service(Constants.FETCH_INTERVAL[3]));
 		serviceMap.put("moviex", new CtMovieExtremeService(Constants.FETCH_INTERVAL[2]));
-		serviceMap.put("movinv", new CtMovieNaverService(Constants.FETCH_INTERVAL[4]));
+		// serviceMap.put("movinv", new CtMovieNaverService(Constants.FETCH_INTERVAL[4]));
 		
 		// girl 3
 		serviceMap.put("girl82", new CtGirl82cookService(Constants.FETCH_INTERVAL[2]));
@@ -86,16 +86,16 @@ public class BatchController {
 		
 		// shop 2
 		serviceMap.put("shopcl", new CtShopClienService(Constants.FETCH_INTERVAL[2]));
-		serviceMap.put("shoppp", new CtShopPpomService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("shoppp", new CtShopPpomService(Constants.FETCH_INTERVAL[3]));
 		
 		// stock 3
-		serviceMap.put("stocda", new CtStockDaumService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("stocda", new CtStockDaumService(Constants.FETCH_INTERVAL[3]));
 		/*serviceMap.put("stocec", new CtStockEconomicService(Constants.FETCH_INTERVAL[6]));*/
-		serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));
+		// serviceMap.put("stocpx", new CtStockPoxnetService(Constants.FETCH_INTERVAL[2]));
 		
 		// dev 2
-		serviceMap.put("devpia", new CtDevPiaService(Constants.FETCH_INTERVAL[6]));
-		serviceMap.put("devpok", new CtDevpThinkService(Constants.FETCH_INTERVAL[3]));
+		// serviceMap.put("devpia", new CtDevPiaService(Constants.FETCH_INTERVAL[6]));
+		// serviceMap.put("devpok", new CtDevpThinkService(Constants.FETCH_INTERVAL[3]));
 	}
 	
 	public void run(String param) {

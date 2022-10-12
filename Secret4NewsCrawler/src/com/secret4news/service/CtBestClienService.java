@@ -9,7 +9,8 @@ public class CtBestClienService extends BaseService {
 
 	private static final String NAME = "Client Best";
 	private static final String HOST = "https://www.clien.net";
-	private static final String URL = "https://www.clien.net/service/group/clien_all?&od=T33";
+	private static final String URL = "https://www.clien.net/service/group/clien_all";
+	// private static final String URL = "https://www.clien.net/service/group/clien_all?&od=T33";
 	
 	private static final String ENCORDING = null;
 	private static final String CATEGORY = "best";
@@ -30,7 +31,7 @@ public class CtBestClienService extends BaseService {
 			Elements es = doc.getElementsByAttributeValue("data-role", "list-title");
 			
 			for(Element el:es) {
-				title = el.getElementsByAttributeValue("class", "subject_fixed").text();
+				title = el.getElementsByAttributeValue("class", "list_subject").text();
 				link = el.getElementsByAttributeValue("class", "list_subject").attr("href");
 				
 				if(title.length() > 0 && link.length() > 0) {

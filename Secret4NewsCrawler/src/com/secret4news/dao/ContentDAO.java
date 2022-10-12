@@ -131,6 +131,7 @@ public class ContentDAO {
 		String sqlStr = "INSERT INTO content (cid, cpname, title, link, category, grade, ctime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
 		if(contentVO.getCategory().equals("best")) {
+			// System.out.println(contentVO);
 			sqlStr = "INSERT INTO content_best (cid, cpname, title, link, category, grade, ctime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		}
 		
